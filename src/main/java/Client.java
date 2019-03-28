@@ -1,6 +1,6 @@
 import java.math.BigDecimal;
 
-public class Client {
+public class Client implements Transactional {
 
     private String firstName;
     private String secondName;
@@ -46,8 +46,9 @@ public class Client {
         return signed;
     }
 
-    public static void setSigned(boolean signed) {
+    public static boolean setSigned(boolean signed) {
         Client.signed = signed;
+        return signed;
     }
 
     public BigDecimal getBalance() {
@@ -67,5 +68,17 @@ public class Client {
     }
 
     public Client() {
+    }
+
+    public boolean singIn(Client client, String inputLog, String inputPass) {
+        if (client.getLogin().equals(inputLog)) {
+            if (client.getPassword().equals(inputPass)) {
+                System.out.println("Welcome " + client.getFirstName() + " " + client.getSecondName());
+                return client.setSigned(true);
+            }
+        }
+
+        System.out.println("Ups. Your login or password is no correct :(");
+        return false;
     }
 }
