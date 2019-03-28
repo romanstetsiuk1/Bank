@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 public class ClientTest {
 
+    //    singIn
     @Test
     public void shouldReturnTrueIfInputDateIsCorrect() {
 //        given
@@ -45,5 +46,19 @@ public class ClientTest {
 //        then
         Assert.assertFalse(false);
     }
+
+    //    singOut:
+    @Test
+    public void shouldReturnFalse() {
+//        given
+        Client user1 = new Client("User", "SecondName",
+                "loginUser", "pass", new BigDecimal("21.12"));
+        user1.singIn(user1, "loginUser", "pass");
+//        when
+        user1.singOut(user1);
+//        then
+        Assert.assertFalse(false);
+    }
+
 
 }
