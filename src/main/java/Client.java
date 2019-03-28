@@ -76,6 +76,8 @@ public class Client implements Transactional {
                 System.out.println("Welcome " + client.getFirstName() + " " + client.getSecondName());
                 return client.setSigned(true);
             }
+            System.out.println("Ups. Your login or password is no correct :(");
+            return false;
         }
 
         System.out.println("Ups. Your login or password is no correct :(");
