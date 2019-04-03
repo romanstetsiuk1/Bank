@@ -10,5 +10,7 @@ public interface Transactional {
 
     BigDecimal addToBalance(Client client, BigDecimal deposit);
 
+    void cashWithdrawal(Client client, BigDecimal inputValue);
+
 
 }

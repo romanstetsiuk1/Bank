@@ -99,5 +99,27 @@ public class Client implements Transactional {
         return actualBalance;
     }
 
+    public void cashWithdrawal(Client client, BigDecimal inputValue) {
+        if (client.isSigned()) {
+            BigDecimal actualBalance = client.getBalance();
+            int opportunity;
+            opportunity = inputValue.compareTo(actualBalance);
+            if (opportunity == 0) {
+                System.out.println("You choose the last money");
+                BigDecimal actualBalanceFinal = client.getBalance().divide(inputValue);
+                client.setBalance(actualBalanceFinal);
+            } else if (opportunity == -1) {
+                BigDecimal actualBalanceFinal = client.getBalance().divide(inputValue);
+                client.setBalance(actualBalanceFinal);
+                System.out.println("Your balance is: " + actualBalanceFinal);
+            } else {
+                System.out.println("Sorry, you do not have enough funds in your account");
+            }
+
+        } else {
+            System.out.println("You are not logged in. You can not withdraw money.\nSing in please.");
+        }
+    }
+
 
 }
