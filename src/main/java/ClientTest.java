@@ -60,5 +60,18 @@ public class ClientTest {
         Assert.assertFalse(false);
     }
 
+    //    showBalance
+    @Test
+    public void shouldReturn10_25() {
+//        given
+        Client user1 = new Client("User", "SecondName",
+                "loginUser", "pass", new BigDecimal("10.25"));
+        BigDecimal expectedRezult = new BigDecimal(10.25);
+//        when
+        BigDecimal actualResult = user1.showBalance(user1);
+//        then
+        Assert.assertEquals(expectedRezult, actualResult);
+    }
+
 
 }

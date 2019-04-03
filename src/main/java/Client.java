@@ -88,5 +88,9 @@ public class Client implements Transactional {
         return client.setSigned(false);
     }
 
+    public BigDecimal showBalance(Client client) {
+        return client.getBalance();
+    }
+
 
 }
