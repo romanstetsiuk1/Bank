@@ -92,5 +92,12 @@ public class Client implements Transactional {
         return client.getBalance();
     }
 
+    public BigDecimal addToBalance(Client client, BigDecimal deposit) {
+        BigDecimal actualBalance;
+        actualBalance = client.getBalance().add(deposit);
+        client.setBalance(actualBalance);
+        return actualBalance;
+    }
+
 
 }

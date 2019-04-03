@@ -66,11 +66,24 @@ public class ClientTest {
 //        given
         Client user1 = new Client("User", "SecondName",
                 "loginUser", "pass", new BigDecimal("10.25"));
-        BigDecimal expectedRezult = new BigDecimal(10.25);
+        BigDecimal expectedResult = new BigDecimal(10.25);
 //        when
         BigDecimal actualResult = user1.showBalance(user1);
 //        then
-        Assert.assertEquals(expectedRezult, actualResult);
+        Assert.assertEquals(expectedResult, actualResult);
+    }
+
+    //    add to balance
+    @Test
+    public void actualBalance10_25Add8324_14ShouldReturn8334_39() {
+//        given
+        Client user1 = new Client("User", "SecondName",
+                "loginUser", "pass", new BigDecimal("10.25"));
+        BigDecimal expectedResult = new BigDecimal(8334.39);
+//        when
+        BigDecimal actualResult = user1.addToBalance(user1, new BigDecimal(8324.14));
+//        then
+        Assert.assertEquals(expectedResult, actualResult);
     }
 
 

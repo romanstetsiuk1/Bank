@@ -8,5 +8,7 @@ public interface Transactional {
 
     BigDecimal showBalance(Client client);
 
+    BigDecimal addToBalance(Client client, BigDecimal deposit);
+
 
 }
